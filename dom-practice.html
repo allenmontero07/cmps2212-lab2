@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Practice</title>
+</head>
+<body>
+
+  <h1 id="title">DOM Selection Lab</h1> 
+
+  <p class="info">This is paragraph one.</p>  
+  <p class="info">This is paragraph two.</p>
+  <p class="info">This is paragraph three.</p>
+
+  <div id="container">
+    <button class="action-btn">Button 1</button>
+    <button class="action-btn">Button 2</button>
+    <button id="special-btn">Special Button</button>
+  </div>
+
+  <script defer>
+    // Select title
+    const title = document.getElementById("title");
+
+    if (!title) {
+      console.error("Title element not found");
+    } else {
+      console.log("Title:", title);
+    }
+
+    // Select first paragraph
+    const firstInfo = document.querySelector(".info");
+
+    if (!firstInfo) {
+      console.error("Info paragraph not found");
+    } else {
+      console.log("First Info:", firstInfo);
+    }
+
+    // Select all action buttons
+    const actionButtons = document.querySelectorAll(".action-btn");
+
+    if (actionButtons.length === 0) {
+      console.error("No action buttons found");
+    } else {
+      console.log("Action Buttons:", actionButtons);
+    }
+  </script>
+
+</body>
+</html>

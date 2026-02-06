@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text Highlighter</title>
+
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .paragraph {
+      margin: 10px 0;
+    }
+
+    .highlight {
+      background-color: yellow;
+      padding: 10px;
+      border-left: 4px solid orange;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1 id="page-title">Text Highlighter</h1>
+
+  <p class="paragraph">This is paragraph one.</p>
+  <p class="paragraph">This is paragraph two.</p>
+  <p class="paragraph">This is paragraph three.</p>
+  <p class="paragraph">This is paragraph four.</p>
+
+  <div>
+    <button id="highlight-btn">Highlight All</button>
+    <button id="clear-btn">Clear Highlights</button>
+    <button id="toggle-btn">Toggle First Paragraph</button>
+  </div>
+
+  <script defer>
+
+    const paragraphs = document.querySelectorAll(".paragraph");
+    const firstParagraph = document.querySelector(".paragraph");
+
+    const highlightBtn = document.getElementById("highlight-btn");
+    const clearBtn = document.getElementById("clear-btn");
+    const toggleBtn = document.getElementById("toggle-btn");
+
+    if (paragraphs.length === 0) console.error("Paragraphs not found");
+    if (!firstParagraph) console.error("First paragraph not found");
+
+    if (!highlightBtn) console.error("Highlight button missing");
+    if (!clearBtn) console.error("Clear button missing");
+    if (!toggleBtn) console.error("Toggle button missing");
+
+
+    highlightBtn.addEventListener("click", () => {
+      paragraphs.forEach(p => {
+        p.classList.add("highlight");
+      });
+    });
+
+    clearBtn.addEventListener("click", () => {
+      paragraphs.forEach(p => {
+        p.classList.remove("highlight");
+      });
+    });
+
+    toggleBtn.addEventListener("click", () => {
+      firstParagraph.classList.toggle("highlight");
+    });
+
+  </script>
+
+</body>
+</html>
